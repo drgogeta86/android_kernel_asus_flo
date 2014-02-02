@@ -1638,13 +1638,13 @@ config MSM_CPUFREQ_LIMITER
     To compile this driver as a module, choose M here: the
     module will be called cpufreq_stats.
 
+    If in doubt, say N.
+
 config MSM_SLEEPER
 	bool "Limit max frequency while screen is off"
 	default y
 	help
 	  Limit max frequency while screen is off
-
-    If in doubt, say N.
 
 config GPU_OVERCLOCK
         bool "Enable GPU Overclocking option"
