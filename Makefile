@@ -374,8 +374,9 @@ KBUILD_CFLAGS   := -O3 \
 		   -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common \
 		   -Werror-implicit-function-declaration \
-		   -Wno-format-security \
+		   -Wno-format-security -Wno-unused-function -Wno-array-bounds -Wno-uninitialized \
 		   -Wno-sizeof-pointer-memaccess \
+                   -fno-delete-null-pointer-checks -Wno-unused-variable -Wno-maybe-uninitialized -Wno-cpp -Wno-declaration-after-statement \
 		   -mcpu=cortex-a15 -mtune=cortex-a15 \
 		   -fpredictive-commoning -fgcse-after-reload -ftree-vectorize \
 		   -fipa-cp-clone -fsingle-precision-constant -pipe \
