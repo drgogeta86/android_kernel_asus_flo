@@ -368,19 +368,19 @@ LINUXINCLUDE    := -I$(srctree)/arch/$(hdr-arch)/include \
                    $(if $(KBUILD_SRC), -I$(srctree)/include) \
                    -include $(srctree)/include/linux/kconfig.h
 
-KBUILD_CPPFLAGS := -D__KERNEL__ -O3 -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -fsingle-precision-constant -mcpu=cortex-a15 -mtune=cortex-a15 -marm -mfpu=neon-vfpv4 -ftree-vectorize -mvectorize-with-neon-quad
+KBUILD_CPPFLAGS := -D__KERNEL__
 
 KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
+		   -Wno-maybe-uninitialized \
 		   -Wno-sizeof-pointer-memaccess \
-		   -mcpu=cortex-a15 -mtune=cortex-a15 \
-		   -fpredictive-commoning -fgcse-after-reload -ftree-vectorize \
-		   -fipa-cp-clone -fsingle-precision-constant -pipe \
-		   -funswitch-loops
-KBUILD_AFLAGS_KERNEL := -O3 -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -fsingle-precision-constant -mcpu=cortex-a15 -mtune=cortex-a15 -marm -mfpu=neon-vfpv4 -ftree-vectorize -mvectorize-with-neon-quad
-KBUILD_CFLAGS_KERNEL := -O3 -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -fsingle-precision-constant -mcpu=cortex-a15 -mtune=cortex-a15 -marm -mfpu=neon-vfpv4 -ftree-vectorize -mvectorize-with-neon-quad
+		   -fno-delete-null-pointer-checks -munaligned-access \
+                   -mcpu=cortex-a15 -mtune=cortex-a15 -mfpu=neon-vfpv4 \
+                   -funsafe-math-optimizations -ftree-vectorize
+KBUILD_AFLAGS_KERNEL :=
+KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
 KBUILD_AFLAGS_MODULE  := -DMODULE
 KBUILD_CFLAGS_MODULE  := -DMODULE
